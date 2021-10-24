@@ -37,23 +37,23 @@ html = browser.html
 
 # Create BeautifulSoup object; parse with 'html.parser'
 news_soup = BeautifulSoup(html, 'html.parser')
+# news_soup = BeautifulSoup(html, 'lxml')
 nasa_news = news_soup.find("div", class_="list_text")
 news_title = nasa_news.find("div", class_="content_title")
-print(news_title.get_text())
+# print(news_title.get_text())
 
 
 
 # find featured image
 target_site = 'https://spaceimages-mars.com'
 browser.visit(target_site)
-
 html = browser.html
 soup = BeautifulSoup(html,'html.parser')
 
-#featured_image_url = browser.find_by_partial_text('featured').value
-featured_image_url = target_site + soup.find('img', class_='headerimage fade-in')['src']
-#print(featured_image_url)
-featured_image_title = target_site + soup.find('h1', class_="media_feature_title").text.strip()
+# btn = soup.find("button", class_="btn")
+
+featured_image_url = target_site +"/"+ soup.find('img', class_='headerimage fade-in')['src']
+featured_image_title = soup.find('h1', class_="media_feature_title").text.strip()
 
 # mars facts
 mars_facts = "https://galaxyfacts-mars.com"
