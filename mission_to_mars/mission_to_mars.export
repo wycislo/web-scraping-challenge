@@ -153,7 +153,7 @@ hemi_soup = bs(hemi_html, "html.parser")
 hemi_links = hemi_soup.find_all("div", class_ = "item")
 
 #create a list for the names and image links
-hemi_img_urls = []
+hemisphere_image_urls = []
 
 #loop thru each link and grab the name and full size image
 for link in hemi_links:
@@ -183,15 +183,15 @@ for link in hemi_links:
     hemi_dict['hemi_img_name'] = img_name
     hemi_dict['hemi_img_url'] = link_base + indv_hemi_url
     hemi_dict['hemi_source_url'] = visit_link
-    #put dictionary into hemi_img_urls
-    hemi_img_urls.append(hemi_dict)
+    #put dictionary into hemisphere_image_urls
+    hemisphere_image_urls.append(hemi_dict)
     browser.back()
 
 
 # In[90]:
 
 
-hemi_img_urls
+hemisphere_image_urls
 
 
 # In[91]:

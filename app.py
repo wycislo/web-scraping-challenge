@@ -3,7 +3,7 @@
 
 import os
 from flask import Flask, render_template, redirect
-import mission_to_mars
+import scrape_mars
 from flask_pymongo import PyMongo
 
 
@@ -18,10 +18,10 @@ def index():
     mars = mongo.db.images.find_one()
     return render_template("index.html",mars = mars)
 
-# @app.route('/scrape')
-# def scrape():
-# 	mission_to_mars.scrape()
-# 	return redirect('/', code = 302)
+@app.route('/scrape')
+def scrape():
+ 	scrape_mars.scrape()
+ 	return redirect('/', code = 302)
 
 
 if __name__ == "__main__":
